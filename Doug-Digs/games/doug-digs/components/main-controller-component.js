@@ -12,33 +12,12 @@ export default class MainControllerComponent extends Engine.Component {
     this.jetpack = SceneManager.currentScene.getGameObject("Jetpack");
     this.level = [[]];
     this.generateLevel(1);
-    this.equipped = false;
-    this.lastMovPos = "right";
-    console.log(this.doug)
   }
 
   update() {
-    if(Engine.Input.getKeyDown("j") && !this.equipped) { //TODO make sure doug doesn't have one already
+    if(Engine.Input.getKeyDown("j") && !this.jetpack.markedDestroy) { //TODO make sure doug doesn't have one already
       this.jetpack.destroy();
-      let jet = Engine.GameObject.deserialize(Prefabs.Jetpack);
-      this.doug.transform.addChild(jet);
-      this.jetpack = jet;
-      this.equipped = true;
-      console.log(this.doug)
-    }
-    // console.log(this.jetpack.getComponent("JetpackComponent"))
-    if(this.equipped && this.jetpack.getComponent("JetpackComponent").fuel > 0 && (Engine.Input.getKey("ArrowUp") || Engine.Input.getKey('w'))) {
-      this.doug.transform.y -= 0.10;
-      // console.log(this.doug);
-    }
-    if((Engine.Input.getKey("ArrowLeft") || Engine.Input.getKey('a'))) {
-      this.lastMovPos = "left";
-    } else if((Engine.Input.getKey("ArrowRight") || Engine.Input.getKey('d'))) {
-      this.lastMovPos = "right";
-    }
-    if(this.equipped) {
-      this.jetpack.transform.x = this.lastMovPos === "left" ? this.doug.transform.x + 0.25 : this.doug.transform.x - 0.25;
-      this.jetpack.transform.y = this.doug.transform.y;
+      this.doug.transform.addChild(Engine.GameObject.deserialize(Prefabs.Jetpack));
     }
   }
 
