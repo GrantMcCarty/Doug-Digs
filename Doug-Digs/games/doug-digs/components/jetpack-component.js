@@ -1,4 +1,4 @@
-import * as Engine from "/engine/engine.js"
+import * as Engine from "../../../engine/engine.js"
 
 export default  class JetpackComponent extends Engine.Component {
  constructor(gameObject, speed = 1) {
@@ -6,7 +6,7 @@ export default  class JetpackComponent extends Engine.Component {
     this.speed = speed;
     this.fuel = 100;
     this.maxFuel = 100;
-    this.offsetX = 0.25;
+    this.offsetX = 0.5;
     this.offsetY = 0;
     this.lastMovPos = "right";
   }

@@ -1,4 +1,4 @@
-import * as Engine from "/engine/engine.js"
+import * as Engine from "../../../engine/engine.js"
 import * as Prefabs from "../prefabs/game-prefabs.js"
 
 const SceneManager = Engine.SceneManager;
@@ -9,6 +9,7 @@ export default class MainControllerComponent extends Engine.Component {
   }
   start() {
     this.doug = SceneManager.currentScene.getGameObject("Doug");
+    // this.doug.transform.addChild(Engine.GameObject.deserialize(Prefabs.Pickaxe));
     this.jetpack = SceneManager.currentScene.getGameObject("Jetpack");
     this.level = [[]];
     this.generateLevel(1);
@@ -18,6 +19,7 @@ export default class MainControllerComponent extends Engine.Component {
     if(Engine.Input.getKeyDown("j") && !this.jetpack.markedDestroy) { //TODO make sure doug doesn't have one already
       this.jetpack.destroy();
       this.doug.transform.addChild(Engine.GameObject.deserialize(Prefabs.Jetpack));
+      this.doug.transform.addChild(Engine.GameObject.deserialize(Prefabs.Pickaxe));
     }
   }
 

@@ -1,4 +1,4 @@
-import * as Engine from "/engine/engine.js"
+import * as Engine from "../../../engine/engine.js"
 
 export default  class GravityComponent extends Engine.Component {
   constructor(gameObject, gravity = 0.05) {

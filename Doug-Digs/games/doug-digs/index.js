@@ -1,8 +1,8 @@
-import * as Engine from "/engine/engine.js"
+import * as Engine from "../../engine/engine.js"
 
 import * as GameScenes from "./scenes/game-scenes.js"
 import * as GamePrefabs from "./prefabs/game-prefabs.js"
-import * as EngineComponents from "/engine/components/engine-components.js"
+import * as EngineComponents from "../../engine/components/engine-components.js"
 import * as GameComponents from "./components/game-components.js"
 
 function boot(mainSceneName) {
