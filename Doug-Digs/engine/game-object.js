@@ -31,6 +31,7 @@ export default  class GameObject {
         // this.x = 0;
         // this.y = 0;
         this.components = [];
+        this.parent = undefined;
         // this.children = [];
         this.markedDestroy = false;
         this.components.push(new Engine.TransformComponent())
