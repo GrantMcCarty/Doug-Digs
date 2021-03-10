@@ -18,6 +18,7 @@ export default  class GameObject {
         if (gameObjectDefinition.children)
             for (let childDefinition of gameObjectDefinition.children) {
                 let child = Scene.deserializeObject(childDefinition);
+                child.parent = toReturn.transform;
                 toReturn.transform.children.push(child);
             }
         return toReturn;
