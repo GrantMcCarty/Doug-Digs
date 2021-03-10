@@ -34,7 +34,7 @@ export default {
             { name: "DrawGeometryComponent", args: ["aquamarine"] },
             { name: "RectangleGeometryComponent", args: [30, 12] },
           ]
-        }, x: 0, y: -9.6
+        }, x: 0, y: -8
       },
       {
             gameObject: { 
@@ -42,13 +42,12 @@ export default {
             components: [
             { name: "DrawGeometryComponent", args: ["orange"] },
             { name: "CircleGeometryComponent", args: [0.5] },
-          ]},
-            children: [], x: -8, y: -6.2
+          ]}, x: -6, y: -4
       },
       {
         prefabName: "MainController"
       },
-      { prefabName: "Doug", x: 0, y:-5 },
-      { prefabName: "Jetpack", x: 5, y:-5 },
+      { prefabName: "Doug", x: 0, y:-2.5 },
+      { prefabName: "Jetpack", x: 3, y:-2.3 },
     ]
   }

@@ -9,7 +9,6 @@ export default class MainControllerComponent extends Engine.Component {
   }
   start() {
     this.doug = SceneManager.currentScene.getGameObject("Doug");
-    // this.doug.transform.addChild(Engine.GameObject.deserialize(Prefabs.Pickaxe));
     this.jetpack = SceneManager.currentScene.getGameObject("Jetpack");
     this.level = [[]];
     this.generateLevel(1);
@@ -18,8 +17,10 @@ export default class MainControllerComponent extends Engine.Component {
   update() {
     if(Engine.Input.getKeyDown("j") && !this.jetpack.markedDestroy) { //TODO make sure doug doesn't have one already
       this.jetpack.destroy();
-      this.doug.transform.addChild(Engine.GameObject.deserialize(Prefabs.Jetpack));
-      this.doug.transform.addChild(Engine.GameObject.deserialize(Prefabs.Pickaxe));
+      let jet = Engine.GameObject.deserialize(Prefabs.Jetpack);
+      this.doug.transform.addChild(jet);
+      jet.transform.position.x -= 0.5
+
     }
   }
 
@@ -37,8 +38,8 @@ export default class MainControllerComponent extends Engine.Component {
                 case 2: tile = Engine.GameObject.deserialize(Prefabs.UnmineableBlock); break;
                 default: tile = Engine.GameObject.deserialize(Prefabs.MineableBlock); break;
             }
-            tile.transform.x = -12.25+ y*1.05;
-            tile.transform.y =-3+ x*1.05;
+            tile.transform.position.x = -12.25+ y*1.05;
+            tile.transform.position.y =-1.4+ x*1.05;
             this.level[x].push(tile);
         }
         if(!this.allUnmineable(this.level[x])) {

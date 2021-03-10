@@ -54,12 +54,17 @@ export default  class GameObject {
      * @param {2D Context from a Canvas} ctx where the game object is drawn
      */
     draw(ctx) {//How does the game object draw itself?
+        ctx.save();
+        ctx.translate(this.transform.position.x, this.transform.position.y);
+        ctx.scale(this.transform.scale.x, this.transform.scale.y);
+        ctx.rotate(this.transform.rotation);
         for (let component of this.components) {
             if (component.draw) component.draw(ctx);
         }
         for(let child of this.transform.children){
             child.draw(ctx);
         }
+        ctx.restore();
     }
 
     /**
@@ -89,10 +94,10 @@ export default  class GameObject {
                 return component;
         }
         //If we didn't find it, search any children we have
-        for(let child of this.transform.children){
-            let component = child.getComponent(name);
-            if(component) return component;
-        }
+        // for(let child of this.transform.children){
+        //     let component = child.getComponent(name);
+        //     if(component) return component;
+        // }
     }
 
     /**

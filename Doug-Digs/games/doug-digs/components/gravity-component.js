@@ -9,7 +9,7 @@ export default  class GravityComponent extends Engine.Component {
   update() {
     // if(!colliding.bottom) {
     if(this.usesGravity) {
-        this.gameObject.transform.y += this.gravity;
+        this.gameObject.transform.position.y += this.gravity;
     }
     if(Engine.Input.getKeyUp("g")) {
         this.usesGravity = !this.usesGravity;
