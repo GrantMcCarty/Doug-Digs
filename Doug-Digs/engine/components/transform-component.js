@@ -11,6 +11,7 @@ export default class TransformComponent extends Component {
         this.children = [];
     }
     addChild(child) {
+        child.parent = this; 
         this.children.push(child);
     }
 }
