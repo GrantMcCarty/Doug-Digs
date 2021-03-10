@@ -1,0 +1,9 @@
+import Component from "../component.js"
+
+export default class WorldCameraComponent extends Component {
+  
+  constructor(gameObject) {
+    super(gameObject);
+    
+  }
+}
